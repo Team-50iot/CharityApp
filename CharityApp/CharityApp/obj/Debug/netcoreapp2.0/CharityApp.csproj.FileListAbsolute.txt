@@ -1,0 +1,12 @@
+D:\CharityApp-master\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.deps.json
+D:\CharityApp-master\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.runtimeconfig.json
+D:\CharityApp-master\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.runtimeconfig.dev.json
+D:\CharityApp-master\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.dll
+D:\CharityApp-master\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.pdb
+D:\CharityApp-master\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.csprojResolveAssemblyReference.cache
+D:\CharityApp-master\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.csproj.CoreCompileInputs.cache
+D:\CharityApp-master\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\CharityApp-master\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.AssemblyInfoInputs.cache
+D:\CharityApp-master\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.AssemblyInfo.cs
+D:\CharityApp-master\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.dll
+D:\CharityApp-master\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.pdb
