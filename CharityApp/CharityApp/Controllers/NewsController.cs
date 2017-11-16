@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using CharityApp.Data;
 using CharityApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CharityApp.Controllers
 {
@@ -34,7 +32,7 @@ namespace CharityApp.Controllers
             }
 
             var news = await _context.News
-                .SingleOrDefaultAsync(m => m.id == id);
+                .SingleOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();
@@ -54,10 +52,11 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,DataOfCreate,Header,Description")] News news)
+        public async Task<IActionResult> Create([Bind("Id,Header,Description")] News news)
         {
             if (ModelState.IsValid)
             {
+                news.DataOfCreate = DateTime.UtcNow;
                 _context.Add(news);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -73,7 +72,7 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News.SingleOrDefaultAsync(m => m.id == id);
+            var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();
@@ -88,7 +87,7 @@ namespace CharityApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,DataOfCreate,Header,Description")] News news)
         {
-            if (id != news.id)
+            if (id != news.Id)
             {
                 return NotFound();
             }
@@ -102,7 +101,7 @@ namespace CharityApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NewsExists(news.id))
+                    if (!NewsExists(news.Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +124,7 @@ namespace CharityApp.Controllers
             }
 
             var news = await _context.News
-                .SingleOrDefaultAsync(m => m.id == id);
+                .SingleOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();
@@ -139,7 +138,7 @@ namespace CharityApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var news = await _context.News.SingleOrDefaultAsync(m => m.id == id);
+            var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
             _context.News.Remove(news);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -147,7 +146,13 @@ namespace CharityApp.Controllers
 
         private bool NewsExists(int id)
         {
-            return _context.News.Any(e => e.id == id);
+            return _context.News.Any(e => e.Id == id);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if(disposing) _context?.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

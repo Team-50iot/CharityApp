@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CharityApp.Data;
+using CharityApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using CharityApp.Data;
-using CharityApp.Models;
 
 namespace CharityApp.Controllers
 {
@@ -17,7 +14,6 @@ namespace CharityApp.Controllers
         public CategoriesController(ApplicationDbContext context)
         {
             _context = context;
-            
         }
 
         // GET: Categories
@@ -149,6 +145,12 @@ namespace CharityApp.Controllers
         private bool CategoriesExists(int id)
         {
             return _context.Categories.Any(e => e.Id == id);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) _context?.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
