@@ -13116,7 +13116,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PREDATOR\\.nuget\\packages\\": {},
+    "C:\\Users\\VladGlushko\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13125,17 +13125,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "A:\\CharityApp\\CharityApp\\CharityApp\\CharityApp.csproj",
+      "projectUniqueName": "C:\\Users\\VladGlushko\\Desktop\\CharityApp\\CharityApp\\CharityApp\\CharityApp.csproj",
       "projectName": "CharityApp",
-      "projectPath": "A:\\CharityApp\\CharityApp\\CharityApp\\CharityApp.csproj",
-      "packagesPath": "C:\\Users\\PREDATOR\\.nuget\\packages\\",
-      "outputPath": "A:\\CharityApp\\CharityApp\\CharityApp\\obj\\",
+      "projectPath": "C:\\Users\\VladGlushko\\Desktop\\CharityApp\\CharityApp\\CharityApp\\CharityApp.csproj",
+      "packagesPath": "C:\\Users\\VladGlushko\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\VladGlushko\\Desktop\\CharityApp\\CharityApp\\CharityApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\PREDATOR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\VladGlushko\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
