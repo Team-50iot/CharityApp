@@ -16,9 +16,9 @@
                 <div class="form-group">
                     <label asp-for="Name">Name:</label>
                     <select asp-for="Name" class="form-control">
-                        <option>Orphan houses</option>
-                        <option>Hospitals</option>
-                        <option>Military</option>
+                        <option>@ViewBag.FirstOption</option>
+                        <option>@ViewBag.SecondOption</option>
+                        <option>@ViewBag.ThirdOption</option>
                     </select>
 
                 </div>
