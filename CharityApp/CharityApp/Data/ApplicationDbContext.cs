@@ -26,7 +26,5 @@ namespace CharityApp.Data
         public DbSet<CharityApp.Models.Categories> Categories { get; set; }
 
         public DbSet<CharityApp.Models.News> News { get; set; }
-
-        public DbSet<CharityApp.Models.Types> Type { get; set; }
     }
 }

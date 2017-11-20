@@ -22,15 +22,3 @@ A:\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.AssemblyI
 A:\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.AssemblyInfo.cs
 A:\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.dll
 A:\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.pdb
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.deps.json
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.runtimeconfig.json
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.runtimeconfig.dev.json
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.dll
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\bin\Debug\netcoreapp2.0\CharityApp.pdb
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.csprojResolveAssemblyReference.cache
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.csproj.CoreCompileInputs.cache
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.AssemblyInfoInputs.cache
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.AssemblyInfo.cs
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.dll
-C:\Users\VladGlushko\Desktop\CharityApp\CharityApp\CharityApp\obj\Debug\netcoreapp2.0\CharityApp.pdb

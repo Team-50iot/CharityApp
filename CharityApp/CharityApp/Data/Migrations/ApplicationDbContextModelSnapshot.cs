@@ -99,18 +99,6 @@ namespace CharityApp.Data.Migrations
                     b.ToTable("News");
                 });
 
-            modelBuilder.Entity("CharityApp.Models.Types", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Type");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
