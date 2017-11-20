@@ -7,6 +7,9 @@ namespace CharityApp.Models
         public int Id { get; set; }
         public DateTime DataOfCreate { get; set;}
         public string Header { get; set; }
+
         public string Description { get; set; }
+
+    
     }
 }
