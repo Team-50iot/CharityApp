@@ -9,46 +9,6 @@ namespace CharityApp.Models
         public DateTime DataOfCreate { get; set; }
         public string Header { get; set; }
         public string Description { get; set; }
-        public Categories Categories { get; set; } 
-
-
+        public Category Category { get; set; }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

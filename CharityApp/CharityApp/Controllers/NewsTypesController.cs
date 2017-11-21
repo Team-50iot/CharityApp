@@ -10,11 +10,11 @@ using CharityApp.Models;
 
 namespace CharityApp.Controllers
 {
-    public class TypesController : Controller
+    public class NewsTypesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TypesController(ApplicationDbContext context)
+        public NewsTypesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace CharityApp.Controllers
         // GET: Types
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Type.ToListAsync());
+            return View(await _context.NewsTypes.ToListAsync());
         }
 
         // GET: Types/Details/5
@@ -33,7 +33,7 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var types = await _context.Type
+            var types = await _context.NewsTypes
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (types == null)
             {
@@ -54,7 +54,7 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Types types)
+        public async Task<IActionResult> Create([Bind("Id,Name")] NewsType types)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var types = await _context.Type.SingleOrDefaultAsync(m => m.Id == id);
+            var types = await _context.NewsTypes.SingleOrDefaultAsync(m => m.Id == id);
             if (types == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Types types)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] NewsType types)
         {
             if (id != types.Id)
             {
@@ -124,7 +124,7 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var types = await _context.Type
+            var types = await _context.NewsTypes
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (types == null)
             {
@@ -139,15 +139,15 @@ namespace CharityApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var types = await _context.Type.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Type.Remove(types);
+            var types = await _context.NewsTypes.SingleOrDefaultAsync(m => m.Id == id);
+            _context.NewsTypes.Remove(types);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TypesExists(int id)
         {
-            return _context.Type.Any(e => e.Id == id);
+            return _context.NewsTypes.Any(e => e.Id == id);
         }
     }
 }

@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace CharityApp.Models
 {
-    public class Categories
+    public class Category
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-
     }
 }

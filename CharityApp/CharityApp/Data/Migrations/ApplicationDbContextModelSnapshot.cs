@@ -71,7 +71,7 @@ namespace CharityApp.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("CharityApp.Models.Categories", b =>
+            modelBuilder.Entity("CharityApp.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -88,7 +88,7 @@ namespace CharityApp.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CategoriesId");
+                    b.Property<int?>("CategoryId");
 
                     b.Property<DateTime>("DataOfCreate");
 
@@ -98,12 +98,12 @@ namespace CharityApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriesId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("News");
                 });
 
-            modelBuilder.Entity("CharityApp.Models.Types", b =>
+            modelBuilder.Entity("CharityApp.Models.NewsType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -112,7 +112,7 @@ namespace CharityApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Type");
+                    b.ToTable("NewsTypes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -225,9 +225,9 @@ namespace CharityApp.Data.Migrations
 
             modelBuilder.Entity("CharityApp.Models.News", b =>
                 {
-                    b.HasOne("CharityApp.Models.Categories", "Categories")
+                    b.HasOne("CharityApp.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoriesId");
+                        .HasForeignKey("CategoryId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -23,10 +23,10 @@ namespace CharityApp.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<CharityApp.Models.Categories> Categories { get; set; }
+        public DbSet<CharityApp.Models.Category> Categories { get; set; }
 
         public DbSet<CharityApp.Models.News> News { get; set; }
 
-        public DbSet<CharityApp.Models.Types> Type { get; set; }
+        public DbSet<CharityApp.Models.NewsType> NewsTypes { get; set; }
     }
 }
