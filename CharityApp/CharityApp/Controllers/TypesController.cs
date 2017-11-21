@@ -1,56 +1,71 @@
-﻿using CharityApp.Data;
-using CharityApp.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using CharityApp.Data;
+using CharityApp.Models;
 
 namespace CharityApp.Controllers
 {
-    public class CategoriesController : Controller
+    public class TypesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CategoriesController(ApplicationDbContext context)
+        public TypesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Categories
+        // GET: Types
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            return View(await _context.Type.ToListAsync());
         }
 
-        // GET: Categories/Details/5
-       
+        // GET: Types/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        // GET: Categories/Create
+            var types = await _context.Type
+                .SingleOrDefaultAsync(m => m.Id == id);
+            if (types == null)
+            {
+                return NotFound();
+            }
+
+            return View(types);
+        }
+
+        // GET: Types/Create
         public IActionResult Create()
         {
-            ViewBag.FirstOption = "Orphan houses";
-            ViewBag.SecondOption = "Military";
-            ViewBag.ThirdOption = "Hospitals";
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Types/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Categories categories)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Types types)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categories);
+                _context.Add(types);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(categories);
+            return View(types);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Types/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -58,22 +73,22 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var categories = await _context.Categories.SingleOrDefaultAsync(m => m.Id == id);
-            if (categories == null)
+            var types = await _context.Type.SingleOrDefaultAsync(m => m.Id == id);
+            if (types == null)
             {
                 return NotFound();
             }
-            return View(categories);
+            return View(types);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Types/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Categories categories)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Types types)
         {
-            if (id != categories.Id)
+            if (id != types.Id)
             {
                 return NotFound();
             }
@@ -82,12 +97,12 @@ namespace CharityApp.Controllers
             {
                 try
                 {
-                    _context.Update(categories);
+                    _context.Update(types);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoriesExists(categories.Id))
+                    if (!TypesExists(types.Id))
                     {
                         return NotFound();
                     }
@@ -98,10 +113,10 @@ namespace CharityApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(categories);
+            return View(types);
         }
 
-        // GET: Categories/Delete/5
+        // GET: Types/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -109,36 +124,30 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var categories = await _context.Categories
+            var types = await _context.Type
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (categories == null)
+            if (types == null)
             {
                 return NotFound();
             }
 
-            return View(categories);
+            return View(types);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Types/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categories = await _context.Categories.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Categories.Remove(categories);
+            var types = await _context.Type.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Type.Remove(types);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoriesExists(int id)
+        private bool TypesExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) _context?.Dispose();
-            base.Dispose(disposing);
+            return _context.Type.Any(e => e.Id == id);
         }
     }
 }
