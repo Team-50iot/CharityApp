@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/CharityApp/.vs
+/CharityApp/CharityApp/obj
+/CharityApp/CharityApp/bin
