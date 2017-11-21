@@ -11,9 +11,10 @@ using System;
 namespace CharityApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171121143800_Version 0.0.3")]
+    partial class Version003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,11 +95,7 @@ namespace CharityApp.Data.Migrations
 
                     b.Property<string>("Header");
 
-                    b.Property<int?>("NewsId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("NewsId");
 
                     b.ToTable("News");
                 });
@@ -221,13 +218,6 @@ namespace CharityApp.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("CharityApp.Models.News", b =>
-                {
-                    b.HasOne("CharityApp.Models.News")
-                        .WithMany("Categori")
-                        .HasForeignKey("NewsId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

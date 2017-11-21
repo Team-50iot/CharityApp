@@ -9,8 +9,9 @@ namespace CharityApp.Models
         public DateTime DataOfCreate { get; set; }
         public string Header { get; set; }
         public string Description { get; set; }
+        public List<News> Categori { get; set; } = new List<News>();
 
-        public List<Categories> Categories { get; set; } = new List<Categories>();
+
     }
 }
 
