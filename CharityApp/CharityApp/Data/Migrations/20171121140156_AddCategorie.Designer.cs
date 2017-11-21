@@ -11,9 +11,10 @@ using System;
 namespace CharityApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171121140156_AddCategorie")]
+    partial class AddCategorie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,9 +77,13 @@ namespace CharityApp.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("CategoriesId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoriesId");
 
                     b.ToTable("Categories");
                 });
@@ -88,8 +93,6 @@ namespace CharityApp.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CategoriesId");
-
                     b.Property<DateTime>("DataOfCreate");
 
                     b.Property<string>("Description");
@@ -97,8 +100,6 @@ namespace CharityApp.Data.Migrations
                     b.Property<string>("Header");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoriesId");
 
                     b.ToTable("News");
                 });
@@ -223,10 +224,10 @@ namespace CharityApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("CharityApp.Models.News", b =>
+            modelBuilder.Entity("CharityApp.Models.Categories", b =>
                 {
-                    b.HasOne("CharityApp.Models.Categories", "Categories")
-                        .WithMany()
+                    b.HasOne("CharityApp.Models.Categories")
+                        .WithMany("Categori")
                         .HasForeignKey("CategoriesId");
                 });
 

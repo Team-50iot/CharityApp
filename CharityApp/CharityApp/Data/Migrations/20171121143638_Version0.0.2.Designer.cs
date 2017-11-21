@@ -11,9 +11,10 @@ using System;
 namespace CharityApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171121143638_Version0.0.2")]
+    partial class Version002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -225,8 +226,8 @@ namespace CharityApp.Data.Migrations
 
             modelBuilder.Entity("CharityApp.Models.News", b =>
                 {
-                    b.HasOne("CharityApp.Models.Categories", "Categories")
-                        .WithMany()
+                    b.HasOne("CharityApp.Models.Categories")
+                        .WithMany("Categori")
                         .HasForeignKey("CategoriesId");
                 });
 
