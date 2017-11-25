@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace CharityApp.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseController
     {
         private readonly ApplicationDbContext _context;
 
-        public NewsController(ApplicationDbContext context)
+        public NewsController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }

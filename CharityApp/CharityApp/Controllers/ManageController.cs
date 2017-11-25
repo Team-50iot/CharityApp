@@ -13,12 +13,13 @@ using Microsoft.Extensions.Options;
 using CharityApp.Models;
 using CharityApp.Models.ManageViewModels;
 using CharityApp.Services;
+using CharityApp.Data;
 
 namespace CharityApp.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -33,7 +34,8 @@ namespace CharityApp.Controllers
           SignInManager<ApplicationUser> signInManager,
           IEmailSender emailSender,
           ILogger<ManageController> logger,
-          UrlEncoder urlEncoder)
+          UrlEncoder urlEncoder, ApplicationDbContext context)
+        : base(context)
         {
             _userManager = userManager;
             _signInManager = signInManager;

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace CharityApp.Controllers
 {
-    public class CategoriesController : Controller
+    public class CategoriesController : BaseController
     {
-        private readonly ApplicationDbContext _context;
+        protected readonly ApplicationDbContext _context;
 
-        public CategoriesController(ApplicationDbContext context)
+        public CategoriesController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }

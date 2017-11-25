@@ -10,11 +10,11 @@ using CharityApp.Models;
 
 namespace CharityApp.Controllers
 {
-    public class NewsTypesController : Controller
+    public class NewsTypesController : BaseController
     {
         private readonly ApplicationDbContext _context;
 
-        public NewsTypesController(ApplicationDbContext context)
+        public NewsTypesController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
