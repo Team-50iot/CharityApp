@@ -44,7 +44,12 @@ namespace CharityApp.Controllers
         // GET: News/Create
         public IActionResult Create()
         {
+            ViewBag.FirstOption = "Orphan houses";
+            ViewBag.SecondOption = "Military";
+            ViewBag.ThirdOption = "Hospitals";
             return View();
+
+           
         }
 
         // POST: News/Create
@@ -52,7 +57,7 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Header,Description")] News news)
+        public async Task<IActionResult> Create([Bind("Id,Header,Description,CategoriesId")] News news)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +90,7 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,DataOfCreate,Header,Description")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("id,DataOfCreate,Header,Description,CategoriesId")] News news)
         {
             if (id != news.Id)
             {
