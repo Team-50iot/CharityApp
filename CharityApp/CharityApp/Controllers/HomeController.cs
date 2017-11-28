@@ -12,7 +12,6 @@ namespace CharityApp.Controllers
     public class HomeController : BaseController
     
     {
-        private readonly ApplicationDbContext _context;
 
         public HomeController(ApplicationDbContext context) : base(context)
         {

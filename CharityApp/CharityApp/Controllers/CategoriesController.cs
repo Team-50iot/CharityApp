@@ -9,7 +9,7 @@ namespace CharityApp.Controllers
 {
     public class CategoriesController : BaseController
     {
-        protected readonly ApplicationDbContext _context;
+       
 
         public CategoriesController(ApplicationDbContext context) : base(context)
         {

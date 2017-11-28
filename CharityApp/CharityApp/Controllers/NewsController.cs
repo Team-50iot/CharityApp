@@ -10,7 +10,7 @@ namespace CharityApp.Controllers
 {
     public class NewsController : BaseController
     {
-        private readonly ApplicationDbContext _context;
+        
 
         public NewsController(ApplicationDbContext context) : base(context)
         {
