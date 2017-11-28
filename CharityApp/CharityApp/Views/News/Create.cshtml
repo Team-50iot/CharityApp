@@ -1,5 +1,6 @@
 ﻿@model CharityApp.Models.News
 
+
 @{
     ViewData["Title"] = "Create";
 }
@@ -22,17 +23,19 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <label asp-for="Category">Categories:</label>
-            <select asp-for="Category" class="form-control">
-                <option>@ViewBag.FirstOption</option>
-                <option>@ViewBag.SecondOption</option>
-                <option>@ViewBag.ThirdOption</option>
-            </select>
-
+            
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+                <label asp-for="Category">Category:</label>
+                <select asp-for="Category" class="form-control">
+                    <option>@ViewBag.FirstOption</option>
+                    <option>@ViewBag.SecondOption</option>
+                    <option>@ViewBag.ThirdOption</option>
+                </select>
+               </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+</form>
     </div>
 </div>
 
