@@ -27,11 +27,13 @@
             <div class="form-group">
                 <label asp-for="Category">Category:</label>
                 <select asp-for="Category" class="form-control">
-                    <option>@ViewBag.FirstOption</option>
-                    <option>@ViewBag.SecondOption</option>
-                    <option>@ViewBag.ThirdOption</option>
+                    @foreach (var item in ViewBag.Categories)
+                    {
+                        <option>@item.Name</option>
+                    }
                 </select>
-               </div>
+            </div>
+
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
