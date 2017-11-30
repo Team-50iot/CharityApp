@@ -28,7 +28,9 @@ namespace CharityApp.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
-            
+            ViewBag.FirstOption = "Orphan houses";
+            ViewBag.SecondOption = "Military";
+            ViewBag.ThirdOption = "Hospitals";
             return View();
         }
 
