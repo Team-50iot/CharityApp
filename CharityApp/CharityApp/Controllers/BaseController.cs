@@ -14,7 +14,7 @@ namespace CharityApp.Controllers
     {
         protected ApplicationDbContext _context;
 
-        private List<Category> categories;
+
 
         protected BaseController(ApplicationDbContext context)
         {
