@@ -25,24 +25,6 @@ namespace CharityApp.Controllers
             return View(await _context.NewsTypes.ToListAsync());
         }
 
-        // GET: Types/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var types = await _context.NewsTypes
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (types == null)
-            {
-                return NotFound();
-            }
-
-            return View(types);
-        }
-
         // GET: Types/Create
         public IActionResult Create()
         {
