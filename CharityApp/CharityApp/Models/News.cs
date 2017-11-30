@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CharityApp.Models
 {
@@ -13,6 +14,10 @@ namespace CharityApp.Models
 
         public string Description { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
+
+        ///[ForeignKey("Category")]
+
+       /// public int CategoryId { get; set; }
     }
 }
