@@ -28,9 +28,6 @@ namespace CharityApp.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
-            ViewBag.FirstOption = "Orphan houses";
-            ViewBag.SecondOption = "Military";
-            ViewBag.ThirdOption = "Hospitals";
             return View();
         }
 
@@ -41,11 +38,13 @@ namespace CharityApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Category categories)
         {
+            
             if (ModelState.IsValid)
             {
                 _context.Add(categories);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+      
             }
             return View(categories);
         }
