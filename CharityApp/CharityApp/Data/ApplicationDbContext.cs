@@ -28,5 +28,7 @@ namespace CharityApp.Data
         public DbSet<CharityApp.Models.News> News { get; set; }
 
         public DbSet<CharityApp.Models.NewsType> NewsTypes { get; set; }
+
+        public DbSet<CharityApp.Models.Comments> Comments { get; set; }
     }
 }
