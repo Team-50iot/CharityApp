@@ -10,11 +10,10 @@ using CharityApp.Models;
 
 namespace CharityApp.Controllers
 {
-    public class CommentsController : Controller
+    public class CommentsController : BaseController
     {
-        private readonly ApplicationDbContext _context;
 
-        public CommentsController(ApplicationDbContext context)
+        public CommentsController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
