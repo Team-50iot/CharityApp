@@ -11,7 +11,7 @@ namespace CharityApp.Controllers
 {
     public class NewsController : BaseController
     {
-        
+
 
         public NewsController(ApplicationDbContext context) : base(context)
         {
@@ -45,10 +45,10 @@ namespace CharityApp.Controllers
         // GET: News/Create
         public IActionResult Create()
         {
-            
+
             return View();
 
-           
+
         }
 
         // POST: News/Create
@@ -155,11 +155,15 @@ namespace CharityApp.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if(disposing) _context?.Dispose();
+            if (disposing) _context?.Dispose();
             base.Dispose(disposing);
         }
 
-      
+        public IActionResult ByCategory(int Id)
+        {
+            var news = _context.News.Where(m => m.Category.Id == Id);
+            return View("Index", news);
 
+        }
     }
 }

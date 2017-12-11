@@ -20,6 +20,7 @@ namespace CharityApp.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
