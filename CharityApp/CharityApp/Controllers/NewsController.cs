@@ -1,18 +1,15 @@
-﻿using System;
-using CharityApp.Data;
+﻿using CharityApp.Data;
 using CharityApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace CharityApp.Controllers
 {
     public class NewsController : BaseController
     {
-
-
         public NewsController(ApplicationDbContext context) : base(context)
         {
             _context = context;
@@ -56,7 +53,7 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Header,Description,Category")] News news)
+        public async Task<IActionResult> Create([Bind("Id,Header,Description,CategoryId")] News news)
         {
             if (ModelState.IsValid)
             {
@@ -159,11 +156,10 @@ namespace CharityApp.Controllers
             base.Dispose(disposing);
         }
 
-        public IActionResult ByCategory(int Id)
+        public IActionResult ByCategory(int id)
         {
-            var news = _context.News.Where(m => m.Category.Id == Id);
+            var news = _context.News.Where(m => m.CategoryId == id).ToList();
             return View("Index", news);
-
         }
     }
 }

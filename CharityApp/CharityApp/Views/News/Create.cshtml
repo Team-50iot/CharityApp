@@ -1,8 +1,10 @@
-﻿@model CharityApp.Models.News
+﻿@using System.Linq
+@model CharityApp.Models.News
 
 
 @{
     ViewData["Title"] = "Create";
+    var items = new SelectList(ViewBag.Categories, "Id", "Name");
 }
 
 <h2>Create</h2>
@@ -25,13 +27,8 @@
             </div>
             
             <div class="form-group">
-                <label asp-for="Category">Category:</label>
-                <select asp-for="Category" class="form-control">
-                    @foreach (var item in ViewBag.Categories)
-                    {
-                        <option>@item.Name</option>
-                    }
-                </select>
+                <label asp-for="Category"></label>
+                <select asp-for="CategoryId" asp-items="items"></select>
             </div>
 
                 <div class="form-group">
