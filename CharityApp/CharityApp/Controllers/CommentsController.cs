@@ -24,24 +24,7 @@ namespace CharityApp.Controllers
             return View(await _context.Comments.ToListAsync());
         }
 
-        // GET: Comments/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var comments = await _context.Comments
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (comments == null)
-            {
-                return NotFound();
-            }
-
-            return View(comments);
-        }
-
+      
         // GET: Comments/Create
         public IActionResult Create()
         {
@@ -63,58 +46,7 @@ namespace CharityApp.Controllers
             }
             return View(comments);
         }
-
-        // GET: Comments/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var comments = await _context.Comments.SingleOrDefaultAsync(m => m.Id == id);
-            if (comments == null)
-            {
-                return NotFound();
-            }
-            return View(comments);
-        }
-
-        // POST: Comments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Comment")] Comments comments)
-        {
-            if (id != comments.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(comments);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CommentsExists(comments.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(comments);
-        }
-
+        
         // GET: Comments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
