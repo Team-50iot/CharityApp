@@ -38,7 +38,7 @@
                         <ul class="dropdown-menu">
 @foreach (var item in ViewBag.Categories)
 {
-               <li><a href="@Url.Action("ByCategory", "News")" class="ByCategory"> @item.Name</a></li>
+               <li><a href="@Url.Action("ByCategory", "News", new {id = item.Id}) " class="ByCategory"> @item.Name</a></li>
 }
                         </ul>
                     </li>              
