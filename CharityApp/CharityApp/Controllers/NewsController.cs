@@ -56,8 +56,15 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Header,Description,Category")] News news)
+        public async Task<IActionResult> Create([Bind("Header,Description,CategoryId")] NewsCategore newsc , News news)
         {
+
+            var News = new NewsCategore
+            {
+
+
+              
+            }
             if (ModelState.IsValid)
             {
                 news.DataOfCreate = DateTime.UtcNow;
