@@ -1,4 +1,4 @@
-﻿@model CharityApp.Models.News
+﻿@model CharityApp.Models.NewsViewModel
 
 
 @{
@@ -25,8 +25,8 @@
             </div>
             
             <div class="form-group">
-                <label asp-for="Category">Category:</label>
-                <select asp-for="Category" class="form-control">
+                <label asp-for="CategoryId">Category:</label>
+                <select asp-for="CategoryId" class="form-control">
                     @foreach (var item in ViewBag.Categories)
                     {
                         <option>@item.Name</option>

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace CharityApp.Models
 {
-    public class NewsCategore
+    public class NewsViewModel
     {
-
+        internal DateTime DataOfCreate;
 
         public string Header { get; set; }
 
