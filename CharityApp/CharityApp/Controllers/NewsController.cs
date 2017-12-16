@@ -59,7 +59,14 @@ namespace CharityApp.Controllers
         public async Task<IActionResult> Create([Bind("Header,Description,CategoryId")] NewsViewModel news)
         {
 
-            
+            var News = new News
+            {
+                Header = NewsViewModel.Header
+                Description = NewsViewModel.Description
+                Category = NewsViewModel.CategoryId
+
+            }
+
             if (ModelState.IsValid)
             {
                 news.DataOfCreate = DateTime.UtcNow;
