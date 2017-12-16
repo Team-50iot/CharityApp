@@ -32,8 +32,10 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var news = await _context.Categories
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var news = await _context.News.SingleOrDefaultAsync(m => m.Id == id);
+
+           
+
             if (news == null)
 
             {
@@ -59,19 +61,19 @@ namespace CharityApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("DataOfCreate,Header,Description,CategoryId")] NewsViewModel news)
         {
-
-            
+            var category = await _context.Categories.SingleAsync(m => m.Id == news.CategoryId);
 
             var News = new News
+
             {
                 Header = news.Header,
 
                 Description = news.Description,
 
                 DataOfCreate =news.DataOfCreate,
+            };
 
-
-        };
+            News.Category = category;
 
             if (ModelState.IsValid)
             {
@@ -104,7 +106,7 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,DataOfCreate,Header,Description,Category")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("id,DataOfCreate,Header,Description,CategoryId")] News news)
         {
             if (id != news.Id)
             {

@@ -23,7 +23,7 @@ namespace CharityApp.Controllers
         }
 
         // GET: Categories/Details/5
-       
+                 
 
         // GET: Categories/Create
         public IActionResult Create()
