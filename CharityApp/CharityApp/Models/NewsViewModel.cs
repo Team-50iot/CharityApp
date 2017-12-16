@@ -7,7 +7,8 @@ namespace CharityApp.Models
 {
     public class NewsViewModel
     {
-        internal DateTime DataOfCreate;
+
+        public DateTime DataOfCreate { get; set; }
 
         public string Header { get; set; }
 

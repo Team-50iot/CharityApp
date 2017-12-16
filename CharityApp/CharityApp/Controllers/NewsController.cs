@@ -32,9 +32,10 @@ namespace CharityApp.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News
+            var news = await _context.Categories
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (news == null)
+
             {
                 return NotFound();
             }
@@ -56,25 +57,30 @@ namespace CharityApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Header,Description,CategoryId")] NewsViewModel news)
+        public async Task<IActionResult> Create([Bind("DataOfCreate,Header,Description,CategoryId")] NewsViewModel news)
         {
+
+            
 
             var News = new News
             {
-                Header = NewsViewModel.Header
-                Description = NewsViewModel.Description
-                Category = NewsViewModel.CategoryId
+                Header = news.Header,
 
-            }
+                Description = news.Description,
+
+                DataOfCreate =news.DataOfCreate,
+
+
+        };
 
             if (ModelState.IsValid)
             {
-                news.DataOfCreate = DateTime.UtcNow;
-                _context.Add(news);
+                News.DataOfCreate = DateTime.UtcNow;
+                _context.Add(News);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(news);
+            return View(News);
         }
 
         // GET: News/Edit/5

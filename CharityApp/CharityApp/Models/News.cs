@@ -15,5 +15,7 @@ namespace CharityApp.Models
         public string Description { get; set; }
 
         public virtual Category Category { get; set; }
+
+        
     }
 }
