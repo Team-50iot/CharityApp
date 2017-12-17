@@ -82,7 +82,7 @@ namespace CharityApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(News);
+            return View(news);
         }
 
         // GET: News/Edit/5
