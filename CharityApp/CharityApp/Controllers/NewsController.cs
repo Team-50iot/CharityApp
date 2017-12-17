@@ -54,6 +54,8 @@ namespace CharityApp.Controllers
            
         }
 
+
+
         // POST: News/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -74,6 +76,8 @@ namespace CharityApp.Controllers
             };
 
             News.Category = category;
+
+
 
             if (ModelState.IsValid)
             {
@@ -176,6 +180,11 @@ namespace CharityApp.Controllers
             base.Dispose(disposing);
         }
 
+        public IActionResult ByCategory(int id)
+        {
+            var news = _context.News.Where(m => m.CategoryId == id).ToList();
+            return View("Index", news);
+        }
 
     }
 }

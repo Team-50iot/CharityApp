@@ -16,6 +16,10 @@ namespace CharityApp.Models
 
         public virtual Category Category { get; set; }
 
-        
+
+        [ForeignKey("Category")]
+
+        public int CategoryId { get; set; }
+
     }
 }
