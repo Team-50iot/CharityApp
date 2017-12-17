@@ -34,15 +34,16 @@
                     <li><a asp-area="" asp-controller="News" asp-action="Index">News</a></li>
                     <li><a asp-area="" asp-controller="NewsTypes" asp-action="Index">Types</a></li>
 
-                    <li class="dropdown"><a asp-area="" asp-controller="Categories" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <li class="dropdown">
+                        <a asp-area="" asp-controller="Categories" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-@foreach (var item in ViewBag.Categories)
-{
-                            <li><a href="#">@item.Name</a></li>
-}
+                            @foreach (var item in ViewBag.Categories)
+                {
+                    <li><a href="@Url.Action("ByCategory", "News", new {id = item.Id}) " class="ByCategory"> @item.Name</a></li>
+                }
                         </ul>
-                    </li>              
-                    
+                    </li>
+
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
@@ -50,6 +51,7 @@
             </div>
         </div>
     </nav>
+            
     <div class="container body-content">
         @RenderBody()
         <hr />
