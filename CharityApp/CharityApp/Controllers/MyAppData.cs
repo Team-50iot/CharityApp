@@ -1,4 +1,5 @@
 ﻿using CharityApp.Data;
+using CharityApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -8,19 +9,8 @@ using System.Threading.Tasks;
 
 namespace CharityApp.Controllers
 {
-    public class MyAppData : BaseController
+    public class MyAppData 
     {
-        public MyAppData(ApplicationDbContext context) : base(context)
-        {
-            _context = context;
-        }
-
-        public override void OnActionExecuted(ActionExecutedContext context)
-        {
-            ViewBag.Categories = _context.Categories.ToList();
-
-            base.OnActionExecuted(context);
-        }
-
+        public static List<Category> Categories { get; set; }
     }
 }
