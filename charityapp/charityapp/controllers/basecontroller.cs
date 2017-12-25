@@ -14,17 +14,27 @@ namespace CharityApp.Controllers
     {
         protected ApplicationDbContext _context;
 
-
-
         protected BaseController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public BaseController(MyAppData myService)
+        public override void OnActionExecuted(ActionExecutedContext context)
         {
-           
-        }
+            List<Category> categories;
+          
+            if (MyAppData.Categories == null)
+            {
+                categories = _context.Categories.ToList();
+            }
+            else
+            {
+                categories = MyAppData.Categories;
+            }
 
+            ViewBag.Categories = categories; 
+            base.OnActionExecuted(context);
+        }
     }
-}
+    }
+
